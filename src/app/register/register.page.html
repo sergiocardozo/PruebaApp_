@@ -1,0 +1,150 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="ion-no-margin">
+    <div>
+      <ion-buttons class="encima" routerLink="/login">
+
+        <ion-back-button  defaultHref="/login">Back</ion-back-button>
+      </ion-buttons>
+
+      <ion-img src="../../assets/img/Register.png"></ion-img>
+    </div>
+
+    <ion-card-header class="ion-no-padding">
+
+      <ion-card-title>
+        Registrate
+      </ion-card-title>
+
+
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <div class="wrapform">
+        <form [formGroup]="formData">
+          <div class="d-flex flex-column">
+
+            <div class="input-group justify-content-center">
+
+              <ion-item>
+                <ion-icon name="mail-outline" class="me-1"></ion-icon>
+                <ion-input formControlName="email" type="text" placeholder="Email"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+                  <p *ngIf="email.errors['required']">Email is required</p>
+                  <p *ngIf="email.errors['email']">Email is invalid</p>
+                </div>
+              </ion-item>
+
+            </div>
+
+
+            <div class="input-group justify-content-center">
+
+              <ion-item>
+                <ion-icon name="lock-closed-outline" class="me-1"></ion-icon>
+                <ion-input formControlName="password" type="password" placeholder="Contraseña"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none" class="ion-no-margin">
+                <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+                  <span *ngIf="password.errors['required']">Ingresar contraseña</span>
+                  <span *ngIf="password.errors['minlength']">La contraseña debe ser de 6 digitos</span>
+                </div>
+              </ion-item>
+
+              <div class="input-group justify-content-center">
+
+                <ion-item>
+                  <ion-icon name="lock-closed-outline" class="me-1"></ion-icon>
+                  <ion-input formControlName="confirmPassword" type="password"
+                    placeholder="Confirmar contraseña"></ion-input>
+                </ion-item>
+
+                <ion-item lines="none" class="ion-no-margin">
+                  <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+                    <span *ngIf="password.errors['required']">Ingresar contraseña</span>
+                    <span *ngIf="password.errors['minlength']">La contraseña debe ser de 6 digitos</span>
+                  </div>
+                </ion-item>
+
+                <div class="signin-btns">
+                  <ion-button (click)="onRegister()" fill="solid" shape="round" class="loginbtn"
+                    [disabled]="!formData.valid">Registrate</ion-button>
+                </div>
+
+                <div class="errors text-center">
+                  <p *ngIf="error === true">{{message}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+
+
+
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<!-- 
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container">
+
+    <form [formGroup]="formData">
+      <div class="input-group">
+        <ion-input formControlName="email" type="text" label="Email" label-placement="floating"
+          fill="outline"></ion-input>
+        <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+          <span *ngIf="email.errors['required']">Email is required</span>
+          <span *ngIf="email.errors['email']">Email is invalid</span>
+        </div>
+
+      </div>
+
+      <div class="input-group">
+        <ion-input formControlName="password" type="password" label="Password" label-placement="floating"
+          fill="outline"></ion-input>
+        <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+          <span *ngIf="password.errors['required']">Password is required</span>
+          <span *ngIf="password.errors['minlength']">Password needs to be 6 characters</span>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <ion-input formControlName="confirmPassword" type="password" label="Confirm Password" label-placement="floating"
+          fill="outline"></ion-input>
+        <div *ngIf="(confirmPassword.dirty) && confirmPassword.errors" class="errors">
+          <span *ngIf="confirmPassword.errors['required']">Password is required</span>
+          <span *ngIf="confirmPassword.errors['minlength']">Password needs to be 6 characters</span>
+        </div>
+      </div>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" (click)="onRegister()" expand="block" shape="round" fill="solid"
+            [disabled]="!formData.valid">
+            Register
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <div class="errors">
+        <p *ngIf="error === true">{{message}}</p>
+      </div>
+
+    </form>
+  </div>
+</ion-content> -->

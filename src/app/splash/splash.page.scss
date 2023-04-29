@@ -1,0 +1,14 @@
+ion-content {
+    --background: #D8F3DC;
+}
+
+@-webkit-keyframes rotate-scale-up{0%{-webkit-transform:scale(1) rotateZ(0);transform:scale(1) rotateZ(0)}50%{-webkit-transform:scale(2) rotateZ(180deg);transform:scale(2) rotateZ(180deg)}100%{-webkit-transform:scale(1) rotateZ(360deg);transform:scale(1) rotateZ(360deg)}}@keyframes rotate-scale-up{0%{-webkit-transform:scale(1) rotateZ(0);transform:scale(1) rotateZ(0)}50%{-webkit-transform:scale(2) rotateZ(180deg);transform:scale(2) rotateZ(180deg)}100%{-webkit-transform:scale(1) rotateZ(360deg);transform:scale(1) rotateZ(360deg)}};
+
+.container {
+    -webkit-animation:rotate-scale-up 1s linear both;animation:rotate-scale-up 1s linear both;
+
+    img {
+        height: 100px;
+        margin-top: 60%;
+    }
+}
